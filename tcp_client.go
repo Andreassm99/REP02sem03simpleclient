@@ -4,13 +4,18 @@ import (
 	"net"
 	"log"
 	"os"
+"github.com/Andreassm99/REP03/mycrypt"
 )
 
 func main() {
-	conn, err := net.Dial("tcp", "172.17.0.3:33043")
+	conn, err := net.Dial("tcp", "172.17.0.2:36349")
 	if err != nil {
 		log.Fatal(err)
 	}
+
+kryptertMelding := mycrypt.Krypter([]rune(os.Args[1]), mycrypt.ALF_SEM03, 4)
+log.Println("Kryptert melding: ", string(kryptertMelding))
+_, err = conn.Write([]byte(string(kryptertMelding)))
     
 	log.Println("os.Args[1] = ", os.Args[1])
 

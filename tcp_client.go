@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net"
 	"log"
+	"net"
 	"os"
 "github.com/Andreassm99/REP03/mycrypt"
 )
@@ -19,7 +19,7 @@ _, err = conn.Write([]byte(string(kryptertMelding)))
     
 	log.Println("os.Args[1] = ", os.Args[1])
 
- 	_, err = conn.Write([]byte(os.Args[1]))
+	_, err = conn.Write([]byte(os.Args[1]))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -27,7 +27,7 @@ _, err = conn.Write([]byte(string(kryptertMelding)))
 	n, err := conn.Read(buf)
 	if err != nil {
 		log.Fatal(err)
-	} 
+	}
 	response := string(buf[:n])
 	log.Printf("reply from proxy: %s", response)
 }
